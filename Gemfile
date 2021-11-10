@@ -32,7 +32,8 @@ gem "reform", '~> 2.2.4'
 gem "reform-rails"
 gem "trailblazer-loader"
 gem "trailblazer-operation"
-gem "rspec"
+gem 'rspec-rails', '~> 4.0.0.beta2'
+gem 'factory_bot_rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -40,6 +41,5 @@ end
 
 group :development do
 end
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

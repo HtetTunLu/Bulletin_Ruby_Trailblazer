@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :authorized, except: [:list]
+    # before_action :authorized, except: [:list]
 
     # POST LIST FOR ADMIN TYPE
     def list
@@ -25,8 +25,8 @@ class PostsController < ApplicationController
 
     # POST CREATE
     def create
-      result = Post::Operation::Create.(params: params)
-      render json: {noti: "Post Successfully created"}
+      Post::Operation::Create.(params: params)
+      render json: {noti: "Post Successfully created"}, status: 201
     end
 
     # POST INFO
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
       if !@post.valid?
         render json: @post.errors, status: 422
       else
-        result = Post::Operation::Update::Present.(params: params)        
+        Post::Operation::Update::Present.(params: params)    
       end
     end
     
@@ -74,5 +74,4 @@ class PostsController < ApplicationController
       result = Post::Operation::Update::Delete.(params: params)
       render json: result
     end
-    
 end

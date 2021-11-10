@@ -21,13 +21,6 @@ module User::Operation
                 options["model"] = User.find_by(email: params[:email])
                 options["model"] = options["model"].update(password: params[:password])
                 options["data"] = "Password has been reset"
-
-                # @user = User.find_by(email: params[:email])
-                # if @user.update(password: params[:password])
-                #     render json: {data: "Password has been reset"}
-                # else
-                #     render json: {error: "this is error"}, status: 422
-                # end
             end
         end
     step Nested(Present)
